@@ -1,0 +1,74 @@
+Logfile for Installing Paasmer...
+/home/mdubuntu/Videos/aws-iot-device-sdk-embedded-c
+/home/mdubuntu
+--> Installing...\n
+--> Installing requerments.......
+Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
+Hit:2 http://archive.canonical.com/ubuntu xenial InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+expect is already the newest version (5.45-7).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+mysql-client-core-5.7 is already the newest version (5.7.11-0ubuntu6).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python2.7 is already the newest version (2.7.12-1~16.04).
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ libssl-dev : Depends: libssl1.0.0 (= 1.0.2g-1ubuntu4) but 1.0.2g-1ubuntu4.5 is to be installed
+              Recommends: libssl-doc but it is not going to be installed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ python-dev : Depends: libpython-dev (= 2.7.11-1) but it is not going to be installed
+              Depends: python2.7-dev (>= 2.7.11-1~) but it is not going to be installed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+xterm is already the newest version (322-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Configuring data...
+"a3rwl3kghmkdtx.iot.us-west-2.amazonaws.com"
+PAASMER-CC3200-34834
+{ "thingArn": "arn:aws:iot:us-west-2:039065299133:thing/PAASMER-CC3200-34834", "thingName": "PAASMER-CC3200-34834" }
+{
+    "certificateArn": "arn:aws:iot:us-west-2:039065299133:cert/a8dc1e9c54ba3f6b69c6ce4f157d12b32b3c62be901e62265ea655b10d76fb74", 
+    "certificatePem": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUV8ux4QyXSYS29NqybsN+M+0lLXwwDQYJKoZIhvcNAQEL\nBQAwTTFLMEkGA1UECwxCQW1hem9uIFdlYiBTZXJ2aWNlcyBPPUFtYXpvbi5jb20g\nSW5jLiBMPVNlYXR0bGUgU1Q9V2FzaGluZ3RvbiBDPVVTMB4XDTE3MDUxMjA2MzY1\nNloXDTQ5MTIzMTIzNTk1OVowHjEcMBoGA1UEAwwTQVdTIElvVCBDZXJ0aWZpY2F0\nZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJpLy6RQAPj/L4/XlcNH\neAAGgIMOgbUOfmo/t2ogo+wsWNPCKHlIor3E9kApP/3A6Zl2B4Hbo8jK/8GO0hqw\n+Cqgbmlb5LCk2sXlk2uVI41BQK0HyZbwi9M+n7uwQaUNgnC4PwN4d+MFS7sLSzjO\n2O0sfWp8ZKiC8dOjcOtidMRbrQLGWB/gIh/FRNXx5CtVM8v1EliY9945syVL5F3Q\nv/xxqa7GnSWK4cytwBiupClleoTM1rKuiOeA27lOtnsBYxLC0MxYTpdzWJpmBvnS\nzt+MTOwB4CLrbDV8hQuozj2fUn5sxIgdzoENATdcqwVTh2F0E9C0VnCM+vYpx1eN\nQ+0CAwEAAaNgMF4wHwYDVR0jBBgwFoAUExmYt8fc5OoyQkr9vGfa0SMDRzEwHQYD\nVR0OBBYEFMMZ3vIFUxjtNfSLw2aPXGLNWmcuMAwGA1UdEwEB/wQCMAAwDgYDVR0P\nAQH/BAQDAgeAMA0GCSqGSIb3DQEBCwUAA4IBAQBZok9P860BYo2HdkmErUyO5UHq\nRGA2JjTxboqwA+QM8xLomFB5KSfQYoasHeOtUORa/8s8Utos6iZnjWVqp5GiVu7Z\nZ23Ww4e9IKd0UGzGNaThXkGbFOZNFKYDP3aaU8U3jcMVFMrFOucdEHHqHPRdvaM5\n62EmTvYEw/hBWy4YYltLRGYQjqWhpr4VWrA3QGhTkuaqeB1PF2vIz02kaoB3Y2bv\n49xtcuy6fc5edUffri4DDgDDyQngoPNdA7+10WxS274KAPGHqxtA0TUVRqNbeN6I\nh7sKOMYGAyq7mDKQ8Lo1fkKkaNSC6n00RBwz9l3KMx0pA+ueqiEDAtV8AGBm\n-----END CERTIFICATE-----\n", 
+    "keyPair": {
+        "PublicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkvLpFAA+P8vj9eVw0d4\nAAaAgw6BtQ5+aj+3aiCj7CxY08IoeUiivcT2QCk//cDpmXYHgdujyMr/wY7SGrD4\nKqBuaVvksKTaxeWTa5UjjUFArQfJlvCL0z6fu7BBpQ2CcLg/A3h34wVLuwtLOM7Y\n7Sx9anxkqILx06Nw62J0xFutAsZYH+AiH8VE1fHkK1Uzy/USWJj33jmzJUvkXdC/\n/HGprsadJYrhzK3AGK6kKWV6hMzWsq6I54DbuU62ewFjEsLQzFhOl3NYmmYG+dLO\n34xM7AHgIutsNXyFC6jOPZ9SfmzEiB3OgQ0BN1yrBVOHYXQT0LRWcIz69inHV41D\n7QIDAQAB\n-----END PUBLIC KEY-----\n", 
+        "PrivateKey": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAmkvLpFAA+P8vj9eVw0d4AAaAgw6BtQ5+aj+3aiCj7CxY08Io\neUiivcT2QCk//cDpmXYHgdujyMr/wY7SGrD4KqBuaVvksKTaxeWTa5UjjUFArQfJ\nlvCL0z6fu7BBpQ2CcLg/A3h34wVLuwtLOM7Y7Sx9anxkqILx06Nw62J0xFutAsZY\nH+AiH8VE1fHkK1Uzy/USWJj33jmzJUvkXdC//HGprsadJYrhzK3AGK6kKWV6hMzW\nsq6I54DbuU62ewFjEsLQzFhOl3NYmmYG+dLO34xM7AHgIutsNXyFC6jOPZ9SfmzE\niB3OgQ0BN1yrBVOHYXQT0LRWcIz69inHV41D7QIDAQABAoIBAAOUuMAyfyNIQOFU\nvowOr5FIlVj1UDtUf8iVe/tBkKxdhx47BldyQRyoYpKwomSQQpumKpxv7YgudesX\nFnc6HjhXCtj1IgSbftxS7K31gyK3HfomER6orIYVkP15JLzg6GMXU5cQB7BEIjLQ\nG0nROyWd/7cl9ewXReeEho1f9pfMA3XA96nUZJpvcvbp+aLsFwoJ2IXnrJKI2EYB\nsTiakrS4zh7sj/pRP21arqyCErIY5fkI2nNropSc0Rkua8FbaVraF8wyUdBEVWV0\nOUlFnghZNtUyd0lOEmOBGBQW0kxgT4/lgHALRu4r5+351i0BYgwPm9JFvT5PJsm5\nweLsX8ECgYEA9NAgF38qHMYQ/zqcbBm5D+uCo2Jzp34pslc4fKk/eOvODa+w2IwB\nEOQKprrtr8Tg9/t8Ji/r33VqvS3oqsJdc9D3t/6OyRJfDZpR1freG3S7VBv7lO7V\nW6bPPmGmKUTSAl1RuzDcFvXiQV9xEwyZbPa3Bg45ZcZ3L9vwRup7IJ0CgYEAoVjI\nr5QUCJPDLykPsiczHvlgVGkRipNTsjqkSC51dEpzqtpyWuvN2z4ezW0c0Vr+BKbM\ne/Ouof+Rihha8q4tUwVLaIjCnn/WPj6WAJuALcjcN9wXt3cuhW+gYujOkkGT7fgy\nCewXTpxcuHUpVoaEvW9XPu0i/stYF14hVI0Bh5ECgYEA7F32XjldQ6LIzmScmpLL\nZ1+QJofr+o+JWrNzyojuy6WAsR4stSeX7+L9lbVtwANq4oNhfs1OA9auVDF7L0Oy\nTxw30OJqoiCmvc99rAgnYoL2S2MpKMbgITmRZz2I3NehnL7VJtMp7NFCvrOTzTyg\n9d/PHn2lVWqlsQO9nfrPHtECgYBjMXU31H64gzdVMBZRPZ5FJaVeX7YEDu0+vqSv\nJ7jYBMm1uVTipuPJLRi8zJ8R6rIOZAmFDtxHBhsQ3kZTuldtGe0xWBrmXMt3Ovz3\nZKJaA4m34dzG00PLj0P4aw5MhnqOq67/wKDXmHO8h3MhmdPTrrbhneKM6LDAtQMi\nuwm8sQKBgCbizsxsItobRa/caV+A1OWoyZKJtb0zPN2PLI0O/j6y9H3Ma8M2IyBy\nQoWuag14xMJMHsUJjt7JWE+A2tYmYRqXFnsCh3lTO8VDFnfDnJVxaW7iTsrwqOgC\ncTfUv3qf3Dl7cadb4QiHmTSMNjBnF5dJpcaVCApqcZ7zIBpBM7BA\n-----END RSA PRIVATE KEY-----\n"
+    }, 
+    "certificateId": "a8dc1e9c54ba3f6b69c6ce4f157d12b32b3c62be901e62265ea655b10d76fb74"
+}
+"arn:aws:iot:us-west-2:039065299133:cert/a8dc1e9c54ba3f6b69c6ce4f157d12b32b3c62be901e62265ea655b10d76fb74"
+{
+    "policyName": "PAASMER-CC3200-34834", 
+    "policyArn": "arn:aws:iot:us-west-2:039065299133:policy/PAASMER-CC3200-34834", 
+    "policyDocument": "{ \"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iot:*\"], \"Resource\": [\"*\"], \"Effect\": \"Allow\" }] }", 
+    "policyVersionId": "1"
+}
+"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" "9d/PHn2lVWqlsQO9nfrPHtECgYBjMXU31H64gzdVMBZRPZ5FJaVeX7YEDu0+vqSv" "J7jYBMm1uVTipuPJLRi8zJ8R6rIOZAmFDtxHBhsQ3kZTuldtGe0xWBrmXMt3Ovz3" "ZKJaA4m34dzG00PLj0P4aw5MhnqOq67/wKDXmHO8h3MhmdPTrrbhneKM6LDAtQMi" "uwm8sQKBgCbizsxsItobRa/caV+A1OWoyZKJtb0zPN2PLI0O/j6y9H3Ma8M2IyBy" "QoWuag14xMJMHsUJjt7JWE+A2tYmYRqXFnsCh3lTO8VDFnfDnJVxaW7iTsrwqOgC" "cTfUv3qf3Dl7cadb4QiHmTSMNjBnF5dJpcaVCApqcZ7zIBpBM7BA"
+"MIIE0zCCA7ugAwIBAgIQGNrRniZ96LtKIVjNzGs7SjANBgkqhkiG9w0BAQUFADCB" "yjELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL" "ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTowOAYDVQQLEzEoYykgMjAwNiBWZXJp" "U2lnbiwgSW5jLiAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MUUwQwYDVQQDEzxW" "ZXJpU2lnbiBDbGFzcyAzIFB1YmxpYyBQcmltYXJ5IENlcnRpZmljYXRpb24gQXV0" "aG9yaXR5IC0gRzUwHhcNMDYxMTA4MDAwMDAwWhcNMzYwNzE2MjM1OTU5WjCByjEL" "MAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQLExZW" "ZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTowOAYDVQQLEzEoYykgMjAwNiBWZXJpU2ln" "biwgSW5jLiAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MUUwQwYDVQQDEzxWZXJp" "U2lnbiBDbGFzcyAzIFB1YmxpYyBQcmltYXJ5IENlcnRpZmljYXRpb24gQXV0aG9y" "aXR5IC0gRzUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvJAgIKXo1" "nmAMqudLO07cfLw8RRy7K+D+KQL5VwijZIUVJ/XxrcgxiV0i6CqqpkKzj/i5Vbex" "t0uz/o9+B1fs70PbZmIVYc9gDaTY3vjgw2IIPVQT60nKWVSFJuUrjxuf6/WhkcIz" "SdhDY2pSS9KP6HBRTdGJaXvHcPaz3BJ023tdS1bTlr8Vd6Gw9KIl8q8ckmcY5fQG" "BO+QueQA5N06tRn/Arr0PO7gi+s3i+z016zy9vA9r911kTMZHRxAy3QkGSGT2RT+" "rCpSx4/VBEnkjWNHiDxpg8v+R70rfk/Fla4OndTRQ8Bnc+MUCH7lP59zuDMKz10/" "NIeWiu5T6CUVAgMBAAGjgbIwga8wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8E" "BAMCAQYwbQYIKwYBBQUHAQwEYTBfoV2gWzBZMFcwVRYJaW1hZ2UvZ2lmMCEwHzAH" "BgUrDgMCGgQUj+XTGoasjY5rw8+AatRIGCx7GS4wJRYjaHR0cDovL2xvZ28udmVy" "aXNpZ24uY29tL3ZzbG9nby5naWYwHQYDVR0OBBYEFH/TZafC3ey78DAJ80M5+gKv" "MzEzMA0GCSqGSIb3DQEBBQUAA4IBAQCTJEowX2LP2BqYLz3q3JktvXf2pXkiOOzE" "p6B4Eq1iDkVwZMXnl2YtmAl+X6/WzChl8gGqCBpH3vn5fJJaCGkgDdk+bW48DW7Y" "5gaRQBi5+MHt39tBquCWIMnNZBU4gcmU7qKEKQsTb47bDN0lAtukixlE0kF6BWlK" "WE9gyn6CagsCqiUXObXbf+eEZSqVir2G3l6BFoMtEMze/aiCKm0oHw0LxOXnGiYZ" "4fQRbxC1lfznQgUy286dUV4otp6F01vvpX1FQHKOtw5rDgb7MzVIcbidJ4vEZV8N" "hnacRHr2lVz2XTIIM6RUthg/aFzyQkqFOFSDX9HoLPKsEdao7WNq"
+Added to PAASMER-CC3200 alias...\n
+File Transfered successfully....
+PAASMER-CC3200-34834
