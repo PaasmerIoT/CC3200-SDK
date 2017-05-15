@@ -1,110 +1,199 @@
+# CC3200-SDK
+**Paasmer IoT SDK** for CC3200 
+
 ## Overview
 
-The AWS IoT device SDK for embedded C is a collection of C source files which can be used in embedded applications to securely connect to the [AWS IoT platform](http://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html). It includes transport clients **MQTT**, **TLS** implementations and examples for their use. It also supports AWS IoT specific features such as **Thing Shadow**. It is distributed in source form and intended to be built into customer firmware along with application code, other libraries and RTOS. For additional information about porting the Device SDK for embedded C onto additional platforms please refer to the [PortingGuide](https://github.com/aws/aws-iot-device-sdk-embedded-c/blob/master/PortingGuide.md/).
+The **PAASMER SDK** for **CC3200 LaunchPad XL** is a collection of source files that enables you to connect to the Paasmer IoT Platform. It includes the trasnport client for **MQTT** with **TLS** support.  It is distributed in source form and intended to be built into customer firmware along with application code, other libraries and TI-RTOS.
 
-## Features
-The Device SDK simplifies access to the Pub/Sub functionality of the AWS IoT broker via MQTT and provide APIs to interact with Thing Shadows. The SDK has been tested to work with the AWS IoT platform to ensure best interoperability of a device with the AWS IoT platform.
+## Featuers
 
-###MQTT Connection
-The Device SDK provides functionality to create and maintain a mutually authenticated TLS connection over which it runs MQTT. This connection is used for any further publish operations and allow for subscribing to MQTT topics which will call a configurable callback function when these topics are received.
+The **CC3200-SDK** simplifies access to the Pub/Sub functionality of the **Paasmer IoT** broker via **MQTT**. The SDK has been tested to work on the **CC3200 LaunchPad XL** running TI-RTOS.
 
-### Thing Shadow
-The Device SDK implements the specific protocol for Thing Shadows to retrieve, update and delete Thing Shadows adhering to the protocol that is implemented to ensure correct versioning and support for client tokens. It abstracts the necessary MQTT topic subscriptions by automatically subscribing to and unsubscribing from the reserved topics as needed for each API call. Inbound state change requests are automatically signalled via a configurable callback.
+## MQTT Connection
 
-## Design Goals of this SDK
-The embedded C SDK was specifically designed for resource constrained devices (running on micro-controllers and RTOS).
+The **CC3200-SDK** provides functionality to create and maintain a mutually authenticated TLS connection over which it runs **MQTT**. This connection is used for any further publish operations and allow for subscribing to **MQTT** topics which will call a configurable callback function when these topics are received.
 
-Primary aspects are:
- * Flexibility in picking and choosing functionality (reduce memory footprint)
- * Static memory only (no malloc’s)
- * Configurable resource usage(JSON tokens, MQTT subscription handlers, etc…)
- * Can be ported to a different RTOS, uses wrappers for OS specific functions
- 
-For more information on the Architecture of the SDK refer [here](http://aws-iot-device-sdk-embedded-c-docs.s3-website-us-east-1.amazonaws.com/index.html)
+## Pre Requisites
 
-## How to get started ?
-Ensure you understand the AWS IoT platform and create the necessary certificates and policies. For more information on the AWS IoT platform please visit the [AWS IoT developer guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-security-identity.html).
+Registration on the portal http://developers.paasmer.co is necessary to connect the devices to the **Paasmer IoT Platfrom** .The SDK has been tested on the CC3200 LaunchPad.
 
-In order to quickly get started with the AWS IoT platform, we have ported the SDK for POSIX type Operating Systems like Ubuntu, OS X and RHEL. The SDK is configured for the mbedTLS library and can be built out of the box with *GCC* using *make utility*. The tarball can be downloaded from the below link:
+<a name="RequiredHW"></a>
+#### Required Hardware
 
-* [mbedTLS from ARM](https://s3.amazonaws.com/aws-iot-device-sdk-embedded-c/linux_mqtt_mbedtls-2.1.0.tar)
+The following device is required for this SDK:
+- [CC3200 Launchpad](http://www.ti.com/tool/cc3200-launchxl)
+
+Please ensure that your device has been updated with the latest firmware and or service pack.
+
+<a name="TI-SW"></a>
+#### TI Software Installation
+
+The following TI software products must be installed in order to build and run the sample applications. While not strictly required, we recommend that you install these products into a common directory and that you use directory names without any whitespace. This documentation assumes that you haved installed everything in a directory named `home\logname\ti\`.
+
+- Install [Code Composer Studio v6.1.2](http://www.ti.com/tool/ccstudio?keyMatch=code%20composer%20studio) or higher.
+
+- Install [TI-RTOS for CC32xx 2.16.00.08](http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/tirtos/index.html) or higher.
+
 
 ## Installation
-This section explains the individual steps to retrieve the necessary files and be able to build your first application using the AWS IoT device SDK for embedded C.
 
-Steps:
+* Download the SDK or clone it using the command below.
+```
+$ git clone github.com/PaasmerIoT/CC3200-SDK.git
+$ cd CC3200-SDK
+```
 
- * Create a directory to hold your application e.g. (/home/<user>/aws_iot/my_app)
- * Change directory to this new directory
- * Download the SDK to device and place in the newly created directory
- * Expand the tarball (tar -xf <tarball.tar>).  This will create the below directories:
-    * `certs` - TLS certificates directory
-    * `docs` - SDK API and file documentation. This folder is not present on GitHub. You can access the documentation [here](http://aws-iot-device-sdk-embedded-c-docs.s3-website-us-east-1.amazonaws.com/index.html)
-    * `external_libs` - The mbedTLS and jsmn source files
-    * `include` - The AWS IoT SDK header files
-    * `platform` - Platform specific files for timer, TLS and threading layers
-    * `samples` - The sample applications
-    * `src` - The AWS IoT SDK source files
-    * `tests` - Contains tests for verifying that the SDK is functioning as expected. More information can be found [here](https://github.com/aws/aws-iot-device-sdk-embedded-c/blob/master/tests/README.md)
- * View further information on how to use the SDK in the Readme file for samples that can be found [here](https://github.com/aws/aws-iot-device-sdk-embedded-c/blob/master/samples/README.md)
- 	
-Also, for a guided example on getting started with the Thing Shadow, visit the AWS IoT Console's [Interactive Guide](https://console.aws.amazon.com/iot).
+* To connect the device to Paasmer IoT Platfrom, the following steps need to be performed.
 
-## Porting to different platforms
-As Embedded devices run on different Real Time Operating Systems and TCP/IP stacks, it is one of the important design goals for the Device SDK to keep it portable. Please refer to the [porting guide](https://github.com/aws/aws-iot-device-sdk-embedded-C/blob/master/PortingGuide.md) to get more information on how to make this SDK run on your devices (i.e. micro-controllers).
+```
+$ sudo ./install.sh
+```
 
-## Migrating from 1.x to 2.x
-The 2.x branch makes several changes to the SDK. This section provides information on what changes will be required in the client application for migrating from v1.x to 2.x.
+* Upon successful completion of the above command, the following commands need to be executed.
+```
+1) sudo su 
+2) source ~/.bashrc 
+3) PAASMER-CC3200_THING 
+4) PAASMER-CC3200_POLICY 
+5) sed -i 's/alias PAASMER-CC3200/#alias PAASMER-CC3200/g' ~/.bashrc 
+6) exit 
+```
 
- * The first change is in the folder structure. Client applications using the SDK now need to keep only the certs, external_libs, include, src and platform folder in their application. The folder descriptions can be found above
- * All the SDK headers are in the `include` folder. These need to be added to the makefile as include directories
- * The source files are in the `src` folder. These need to be added to the makefile as one of the source directories
- * Similar to 1.x, the platform folder contains the platform specific headers and source files. These need to be added to the makefile as well
- * The `platform/threading` folder only needs to be added if multi-threading is required, and the `_ENABLE_THREAD_SUPPORT_` macro is defined in config 
- * The list below provides a mapping for migrating from the major APIs used in 1.x to the new APIs:
+<a name="Enviro-Setup"></a>
+## Build Environment Set Up
 
-    | Description | 1.x | 2.x |
-    | :---------- | :-- | :-- |
-    | Initializing the client | ```void aws_iot_mqtt_init(MQTTClient_t *pClient);``` | ```IoT_Error_t aws_iot_mqtt_init(AWS_IoT_Client *pClient, IoT_Client_Init_Params *pInitParams);``` |
-    | Connect | ```IoT_Error_t aws_iot_mqtt_connect(MQTTConnectParams *pParams);``` | ```IoT_Error_t aws_iot_mqtt_connect(AWS_IoT_Client *pClient, IoT_Client_Connect_Params *pConnectParams);``` |
-    | Subscribe | ```IoT_Error_t aws_iot_mqtt_subscribe(MQTTSubscribeParams *pParams);``` | ```IoT_Error_t aws_iot_mqtt_subscribe(AWS_IoT_Client *pClient, const char *pTopicName, uint16_t topicNameLen, QoS qos, pApplicationHandler_t pApplicationHandler, void *pApplicationHandlerData);``` |
-    | Unsubscribe | ```IoT_Error_t aws_iot_mqtt_unsubscribe(char *pTopic);``` | ```IoT_Error_t aws_iot_mqtt_unsubscribe(AWS_IoT_Client *pClient, const char *pTopicFilter, uint16_t topicFilterLen);``` |
-    | Yield | ```IoT_Error_t aws_iot_mqtt_yield(int timeout);``` | ```IoT_Error_t aws_iot_mqtt_yield(AWS_IoT_Client *pClient, uint32_t timeout_ms);``` |
-    | Publish | ```IoT_Error_t aws_iot_mqtt_publish(MQTTPublishParams *pParams);``` | ```IoT_Error_t aws_iot_mqtt_publish(AWS_IoT_Client *pClient, const char *pTopicName, uint16_t topicNameLen, IoT_Publish_Message_Params *pParams);``` |
-    | Disconnect | ```IoT_Error_t aws_iot_mqtt_disconnect(void);``` | ```IoT_Error_t aws_iot_mqtt_disconnect(AWS_IoT_Client *pClient);``` |
+### Updating Paths To Product Dependencies
 
-You can find more information on how to use the new APIs in the Readme file for samples that can be found [here](https://github.com/aws/aws-iot-device-sdk-embedded-c/blob/master/samples/README.md)
+1. Edit the `products.mak` file in `<CC3200-SDK_INSTALL_DIR>/` using your favorite text editor.
+2. Update the variables `XDC_INSTALL_DIR and TIRTOS_INSTALL_DIR to point to the locations where you installed these products.
+3. The variable `TI_ARM_CODEGEN_INSTALL_DIR` should point to the installation location of the TI ARM compiler in your CCS installation.
+4. After modification, these variable definitions should look similar to the following if you are working in Windows. (Windows users: note the use of "/" in the path).
+    ```
+    XDC_INSTALL_DIR = home\logname\ti\xdctools_3_32_00_06_core
+    TIRTOS_INSTALL_DIR = home\logname\ti\tirtos_cc32xx_2_16_00_08
+    TI_ARM_CODEGEN_INSTALL_DIR = home\logname\ti\ccsv6\tools\compiler\ti-cgt-arm_5.2.5
+    ```
 
-## Resources
-[API Documentation](http://aws-iot-device-sdk-embedded-c-docs.s3-website-us-east-1.amazonaws.com/index.html)
+* Go to the diectory below.
+```
+$ cd samples/tirtos/subscribe_publish_sample/cc3200
+```
 
-[MQTT 3.1.1 Spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/csprd02/mqtt-v3.1.1-csprd02.html)
+* Edit the config.h file to include the user name(Email), device name, feed names and GPIO pin details.
+
+```
+#define UserName "Email Address" //your user name in website
+
+#define DeviceName "" //your device name
+
+#define feedname1 "feed1" //feed name you use in the website
+
+#define sensorpin1_base GPIOA1_BASE //modify with the GPIO Base which you connected the sensor
+
+#define sensorpin1_Hexnumber 0x40   // modify with GPIO Hexnumber for the selected pin
+
+#define feedname2 "feed2" //feed name you use in the website
+
+#define sensorpin2_base GPIOA2_BASE  //modify with the GPIO Base which you connected the sensor
+
+#define sensorpin2_Hexnumber 0x1    // modify with GPIO Hexnumber for the selected pin
+
+#define feedname3 "feed3" //feed name you use in the website
+
+#define sensorpin3_base GPIOA2_BASE //modify with the GPIO Base which you connected the sensor
+
+#define sensorpin3_Hexnumber 0x1    // modify with GPIO Hexnumber for the selected pin
+
+#define analogfeedname "feed4" //feed name you use in the website for analog readings
+
+#define analogchannel 3  // analog channel 3
+
+#define controlfeedname1 "controlfeed1" //feed name you use in the website for control device pins
+
+#define controlpin1_base GPIOA3_BASE //modify with the GPIO Base which you connected the device(eg.: motor)
+
+#define controlpin1_Hexnumber 0x10   // modify with GPIO Hexnumber for the selected pin
+
+#define controlfeedname2 "controlfeed2" //feed name you use in the website for control device pins
+
+#define controlpin2_base GPIOA3_BASE   //modify with the GPIO Base which you connected the device(eg.: motor)
+
+#define controlpin2_Hexnumber 0x40   // modify with GPIO Hexnumber for the selected pin
+
+#define timePeriod 2 //change the time delay as you required for sending sensor values to paasmer cloud
+
+```
+
+* Open the file `wificonfig.h` from the directory `<CC3200-SDK_INSTALL_DIR>/samples/tirtos/subscribe_publish_sample/cc3200`. Search for "USER STEP" and update the WIFI SSID and SECURITY_KEY macros. 
+ 
+* Compile the code and generate output file.
+
+```
+$ sudo ./Build.sh 
+```
+<a name="Setup-CCS"></a>
+## Setting Up Code Composer Studio Before Running The Samples
+
+1. Plug the CC3200 Launchpad into a USB port on your PC
+
+2. Open a serial session to the appropriate COM port with the following settings:
+
+    ```
+    Baudrate:     9600
+    Data bits:       8
+    Stop bits:       1
+    Parity:       None
+    Flow Control: None
+    ```
+
+3. Open Code Composer Studio.
+
+4. In Code Composer Studio, open the CCS Debug Perspective - Windows menu -> Open Perspective -> CCS Debug
+
+5. Open the Target Configurations View - Windows menu -> Show View -> Target Configurations
+
+6. Right-click on User Defined. Select New Target Configuration.
+
+7. Use `CC3200.ccxml` as "File name". Hit Finish.
+
+8. In the Basic window, select "Stellaris In-Circuit Debug Interface" as the "Connection", and check the box next to "CC3200" in "Board or Device". Hit Save.
+
+9. Right-click "CC3200.ccxml" in the Target Configurations View. Hit Launch Selected Configuration.
+
+10. Under the Debug View, right-click on "Stellaris In-Circuit Debug Interface_0/Cortex_M4_0". Select "Connect Target".
+
+<a name="Run-TOOL"></a>
+## Running The Certificate Flasher Tool
+
+All samples rely on a set of certificates from AWS. As a result, the certificates need to be stored once into flash memory prior to running the samples. To flash the certificates, simply run the flasher tool you have previously [built](#Build-TOOL) using this procedure:
+
+1. Select Run menu -> Load -> Load Program..., and browse to the file `certflasher.out` in `<CC3200-SDK_INSTALL_DIR>/PAASMER-CC3200-$no/tirtos/certs/cc3200`. Hit OK. This will load the program onto the board.
+
+2. Run the application by pressing F8. The output in the CCS Console looks as follows:
+
+    ```
+    Flashing ca certificate file ...
+    Flashing client certificate file ...
+    Flashing client key file ...
+    done.
+    ```
+3. Hit Alt-F8 (Suspend) to halt the CPU.
+
+<a name="Run-SAMPLE"></a>
+## Running the Sample
+
+1. Disconnect and reconnect the CC3200's USB cable to power cycle the hardware, and then reconnect in CCS.  For best results, it is recommended to do this before loading and running an application every time, in order to reset the CC3200's network processor.
+
+2. Select Run menu -> Load -> Load Program..., and browse to the file `subscribe_publish_sample.out` in `<CC3200-SDK_INSTALL_DIR>/PAASMER-CC3200-$no/tirtos/subscribe_publish_sample/cc3200`. Hit OK. This will load the program onto the board. (The same procedure applies to other samples by substituting `subscribe_publish_sample`)
+
+3. Run the application by pressing F8.
+
+* The device would now be connected to the Paasmer IoT Platfrom and publishing sensor values are specified intervals.
 
 ## Support
-If you have any technical questions about AWS IoT Device SDK, use the [AWS IoT forum](https://forums.aws.amazon.com/forum.jspa?forumID=210).
-For any other questions on AWS IoT, contact [AWS Support](https://aws.amazon.com/contact-us/).
 
-## Sample APIs
-Connecting to the AWS IoT MQTT platform
+The support forum is hosted on the GitHub, issues can be identified by users and the Team from Paasmer would be taking up requstes and resolving them. You could also send a mail to support@paasmer.co with the issue details for quick resolution.
 
-```
-AWS_IoT_Client client;
-rc = aws_iot_mqtt_init(&client, &iotInitParams);
-rc = aws_iot_mqtt_connect(&client, &iotConnectParams);
-```
+## Note
 
-
-Subscribe to a topic
-
-```
-AWS_IoT_Client client;
-rc = aws_iot_mqtt_subscribe(&client, "sdkTest/sub", 11, QOS0, iot_subscribe_callback_handler, NULL);
-```
-
-
-Update Thing Shadow from a device
-
-``` 
-rc = aws_iot_shadow_update(&mqttClient, AWS_IOT_MY_THING_NAME, pJsonDocumentBuffer, ShadowUpdateStatusCallback,
-                            pCallbackContext, TIMEOUT_4SEC, persistenSubscription);
-```
+The Paasmer IoT CC3200-SDK utilizes the features provided by AWS-IOT-SDK for C.
