@@ -191,7 +191,7 @@ void disconnectCallbackHandler(AWS_IoT_Client *pClient, void *data)
 static int livestatus=0;
 void runAWSClient(void)
 {
-	IOT_INFO("aws is starting............");
+	IOT_INFO("PAASMER is starting............");
     IoT_Error_t rc = SUCCESS;
     bool infinitePublishFlag = true;
     char topicName[100] = "sdkTest/sub";
@@ -207,7 +207,7 @@ void runAWSClient(void)
     IoT_Publish_Message_Params paramsQOS0;
     IoT_Publish_Message_Params paramsQOS1;
 
-    IOT_INFO("\nAWS IoT SDK Version %d.%d.%d-%s\n", VERSION_MAJOR, VERSION_MINOR,
+    IOT_INFO("\nPAASMER IoT SDK Version %d.%d.%d-%s\n", VERSION_MAJOR, VERSION_MINOR,
             VERSION_PATCH, VERSION_TAG);
 
 
