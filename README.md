@@ -5,7 +5,7 @@
 
 The **PAASMER SDK** for **CC3200 LaunchPad XL** is a collection of source files that enables you to connect to the Paasmer IoT Platform. It includes the trasnport client for **MQTT** with **TLS** support.  It is distributed in source form and intended to be built into customer firmware along with application code, other libraries and TI-RTOS.
 
-## Featuers
+## Features
 
 The **CC3200-SDK** simplifies access to the Pub/Sub functionality of the **Paasmer IoT** broker via **MQTT**. The SDK has been tested to work on the **CC3200 LaunchPad XL** running TI-RTOS.
 
